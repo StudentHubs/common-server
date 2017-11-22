@@ -1,6 +1,6 @@
 import { Enhancer, enhancers } from 'rgo';
 import * as Knex from 'knex';
-import { isValid } from 'common';
+import { isValid, Obj } from 'common';
 
 export const previous = (knex: Knex) =>
   enhancers.onUpdate(async ({ type, id }, { context }) => {

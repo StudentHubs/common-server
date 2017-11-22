@@ -23,6 +23,6 @@
     "common": "https://github.com/kalambo/common",
     "knex": "^0.14.1",
     "koa-router": "^7.3.0",
-    "rgo": "^0.3.0"
+    "rgo": "^0.3.1"
   }
 }

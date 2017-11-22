@@ -9,6 +9,7 @@ import {
 import * as Knex from 'knex';
 import keysToObject from 'keys-to-object';
 import * as uuid from 'uuid/v1';
+import { Obj } from 'common';
 
 const sqlScalars = {
   boolean: 'BOOLEAN',
