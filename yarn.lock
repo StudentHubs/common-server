@@ -2,10 +2,6 @@
 # yarn lockfile v1
 
 
-"@types/node@^7.0.48":
-  version "7.0.48"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-7.0.48.tgz#24bfdc0aa82e8f6dbd017159c58094a2e06d0abb"
-
 "@types/node@^8.0.53":
   version "8.0.53"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-8.0.53.tgz#396b35af826fa66aad472c8cb7b8d5e277f4e6d8"
@@ -101,18 +97,16 @@ color-name@^1.1.1:
   resolved "https://registry.yarnpkg.com/color-name/-/color-name-1.1.3.tgz#a7d0558bd89c42f795dd42328f740831ca53bc25"
 
 commander@^2.2.0:
-  version "2.12.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-2.12.0.tgz#2f13615c39c687a77926aa68ef25c099db1e72fb"
-  dependencies:
-    "@types/node" "^7.0.48"
+  version "2.12.1"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-2.12.1.tgz#468635c4168d06145b9323356d1da84d14ac4a7a"
 
 "common@https://github.com/kalambo/common":
   version "0.1.0"
-  resolved "https://github.com/kalambo/common#e08b26fc8df4cf900ad952f8e6e672d88d760f11"
+  resolved "https://github.com/kalambo/common#227325f1414cc8151adc0e1972a025bfff987425"
   dependencies:
     base-x "^3.0.2"
     moment "^2.19.2"
-    rgo "^0.3.1"
+    rgo "^0.3.2"
 
 concat-map@0.0.1:
   version "0.0.1"
@@ -729,9 +723,9 @@ resolve@^1.1.6, resolve@^1.1.7:
   dependencies:
     path-parse "^1.0.5"
 
-rgo@^0.3.1:
-  version "0.3.1"
-  resolved "https://registry.yarnpkg.com/rgo/-/rgo-0.3.1.tgz#2cac840d770f57f2eb0b7764e20462da847e25ee"
+rgo@^0.3.2:
+  version "0.3.2"
+  resolved "https://registry.yarnpkg.com/rgo/-/rgo-0.3.2.tgz#c6ae0ab503f0353e5998ab68eda0d0f428959b8b"
   dependencies:
     clone "^2.1.1"
     deep-equal "^1.0.1"
