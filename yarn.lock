@@ -82,10 +82,6 @@ chalk@2.3.0:
     escape-string-regexp "^1.0.5"
     supports-color "^4.0.0"
 
-clone@^2.1.1:
-  version "2.1.1"
-  resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.1.tgz#d217d1e961118e3ac9a4b8bba3285553bf647cdb"
-
 color-convert@^1.9.0:
   version "1.9.1"
   resolved "https://registry.yarnpkg.com/color-convert/-/color-convert-1.9.1.tgz#c1261107aeb2f294ebffec9ed9ecad529a6097ed"
@@ -436,9 +432,9 @@ kind-of@^4.0.0:
   dependencies:
     is-buffer "^1.1.5"
 
-knex@^0.14.1:
-  version "0.14.1"
-  resolved "https://registry.yarnpkg.com/knex/-/knex-0.14.1.tgz#ba4ae5afc2824a43b392fbbc8f8a7753e356d808"
+knex@^0.14.2:
+  version "0.14.2"
+  resolved "https://registry.yarnpkg.com/knex/-/knex-0.14.2.tgz#f3b3fe1ea0711af842770100768af21bfcbcbaea"
   dependencies:
     babel-runtime "^6.23.0"
     bluebird "^3.4.6"
@@ -723,11 +719,10 @@ resolve@^1.1.6, resolve@^1.1.7:
   dependencies:
     path-parse "^1.0.5"
 
-rgo@^0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/rgo/-/rgo-0.3.2.tgz#c6ae0ab503f0353e5998ab68eda0d0f428959b8b"
+rgo@^0.3.2, rgo@^0.3.5:
+  version "0.3.5"
+  resolved "https://registry.yarnpkg.com/rgo/-/rgo-0.3.5.tgz#d7aa2b90f2d17b479706bba288fbb1278e80388d"
   dependencies:
-    clone "^2.1.1"
     deep-equal "^1.0.1"
     keys-to-object "^0.2.0"
     lodash.throttle "^4.1.1"

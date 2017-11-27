@@ -21,8 +21,8 @@
   "dependencies": {
     "@types/node": "^8.0.53",
     "common": "https://github.com/kalambo/common",
-    "knex": "^0.14.1",
+    "knex": "^0.14.2",
     "koa-router": "^7.3.0",
-    "rgo": "^0.3.2"
+    "rgo": "^0.3.5"
   }
 }

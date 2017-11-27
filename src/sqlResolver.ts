@@ -38,6 +38,12 @@ const applyFilter = (
       `${isOr ? 'orWhere' : 'where'}${op === '=' ? 'Null' : 'NotNull'}`
     ](filter[0]);
   }
+  if (op === '!=') {
+    return knex[isOr ? 'orWhereRaw' : 'whereRaw'](
+      `${filter[0]} IS DISTINCT FROM ?`,
+      [1],
+    );
+  }
   return knex[isOr ? 'orWhere' : 'where'](filter[0], op, value);
 };
 
