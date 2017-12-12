@@ -14,12 +14,12 @@
     "prepare": "yarn run build"
   },
   "devDependencies": {
-    "prettier": "^1.8.2",
+    "prettier": "^1.9.2",
     "rimraf": "^2.6.2",
-    "typescript": "^2.6.1"
+    "typescript": "^2.6.2"
   },
   "dependencies": {
-    "@types/node": "^8.0.53",
+    "@types/node": "^8.0.58",
     "common": "https://github.com/kalambo/common",
     "knex": "^0.14.2",
     "koa-router": "^7.3.0",
