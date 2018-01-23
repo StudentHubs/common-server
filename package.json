@@ -7,21 +7,22 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "prettier": "prettier --single-quote --trailing-comma all --write \"src/**/*.ts\"",
+    "prettier":
+      "prettier --single-quote --trailing-comma all --write \"src/**/*.ts\"",
     "clean": "rimraf lib/*",
     "build": "yarn run clean && tsc",
     "prepare": "yarn run build"
   },
   "devDependencies": {
-    "prettier": "^1.9.2",
+    "prettier": "^1.10.2",
     "rimraf": "^2.6.2",
     "typescript": "^2.6.2"
   },
   "dependencies": {
-    "@types/node": "^8.5.7",
+    "@types/node": "^9.3.0",
     "common": "https://github.com/kalambo/common",
     "knex": "^0.14.2",
     "koa-router": "^7.3.0",
-    "rgo": "^0.3.5"
+    "rgo": "^0.3.6"
   }
 }

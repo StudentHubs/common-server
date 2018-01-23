@@ -23,12 +23,15 @@ const sqlScalars = {
 
 const applyFilter = (
   knex: Knex.QueryBuilder,
+  typeFields: Obj<Field>,
   filter: any[],
   isOr?: boolean,
 ) => {
   if (['AND', 'OR'].includes(filter[0])) {
     return knex.where(function(this: Knex.QueryBuilder) {
-      filter.slice(1).forEach(f => applyFilter(this, f, filter[0] === 'OR'));
+      filter
+        .slice(1)
+        .forEach(f => applyFilter(this, typeFields, f, filter[0] === 'OR'));
     });
   }
   const op = filter.length === 3 ? filter[1] : '=';
@@ -38,10 +41,24 @@ const applyFilter = (
       `${isOr ? 'orWhere' : 'where'}${op === '=' ? 'Null' : 'NotNull'}`
     ](filter[0]);
   }
+  const field = typeFields[filter[0]];
+  if (
+    field &&
+    fieldIs.scalar(field) &&
+    field.isList &&
+    ['=', '!='].includes(op)
+  ) {
+    return knex[isOr ? 'orWhereRaw' : 'whereRaw'](
+      op === '='
+        ? `? = ANY(${filter[0]})`
+        : `? != ALL(COALESCE(${filter[0]}, '{}'))`,
+      [value],
+    );
+  }
   if (op === '!=') {
     return knex[isOr ? 'orWhereRaw' : 'whereRaw'](
       `${filter[0]} IS DISTINCT FROM ?`,
-      [1],
+      [value],
     );
   }
   return knex[isOr ? 'orWhere' : 'where'](filter[0], op, value);
@@ -99,7 +116,9 @@ export default async function sqlResolver(
   return resolvers.db(schema, {
     async find(type, { filter, sort, start = 0, end }, fields) {
       if (start === end) return [];
-      const query = filter ? applyFilter(knex(type), filter) : knex(type);
+      const query = filter
+        ? applyFilter(knex(type), schema[type], filter)
+        : knex(type);
       if (sort) {
         sort.forEach(s => {
           const field = s.replace('-', '');
