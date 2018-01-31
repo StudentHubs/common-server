@@ -20,8 +20,8 @@ export const timestamps = enhancers.onUpdate(async ({ id, record }) => {
   if (record) {
     const time = new Date();
     return {
-      ...id || record.createdat ? {} : { createdat: time },
-      ...record.modifiedat ? {} : { modifiedat: time },
+      ...(id || record.createdat ? {} : { createdat: time }),
+      ...(record.modifiedat ? {} : { modifiedat: time }),
     };
   }
 }) as Enhancer;
