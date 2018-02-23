@@ -1,6 +1,7 @@
 import { Enhancer, enhancers } from 'rgo';
 import * as Knex from 'knex';
 import { isValid, Obj } from 'common';
+import keysToObject from 'keys-to-object';
 
 export const previous = (knex: Knex) =>
   enhancers.onUpdate(async ({ type, id }, { context }) => {
@@ -16,15 +17,21 @@ export const previous = (knex: Knex) =>
     }
   }) as Enhancer;
 
-export const timestamps = enhancers.onUpdate(async ({ id, record }) => {
-  if (record) {
-    const time = new Date();
-    return {
-      ...(id || record.createdat ? {} : { createdat: time }),
-      ...(record.modifiedat ? {} : { modifiedat: time }),
-    };
-  }
-}) as Enhancer;
+export const formulae = enhancers.onUpdate(
+  async ({ type, id, record }, { schema, context: { previous } }) => {
+    if (record) {
+      const fields = Object.keys(schema[type]).filter(
+        f => schema[type][f].meta && schema[type][f].meta.formula,
+      );
+      const values = await Promise.all(
+        fields.map(f =>
+          schema[type][f].meta.formula({ type, id, record, previous }),
+        ),
+      );
+      return keysToObject(fields, (_, i) => values[i]);
+    }
+  },
+) as Enhancer;
 
 export const logging = enhancers.onUpdate(
   async ({ type, id, record }, { context: { previous } }) => {
