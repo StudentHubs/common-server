@@ -19,13 +19,14 @@ export const previous = (knex: Knex) =>
 
 export const formulae = enhancers.onUpdate(
   async ({ type, id, record }, { schema, context: { previous } }) => {
+    const prev: Obj | null = previous[type][id!] || null;
     if (record) {
       const fields = Object.keys(schema[type]).filter(
         f => schema[type][f].meta && schema[type][f].meta.formula,
       );
       const values = await Promise.all(
         fields.map(f =>
-          schema[type][f].meta.formula({ type, id, record, previous }),
+          schema[type][f].meta.formula({ type, id, record, previous: prev }),
         ),
       );
       return keysToObject(fields, (_, i) => values[i]);
