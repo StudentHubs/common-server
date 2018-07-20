@@ -20,9 +20,9 @@
   },
   "dependencies": {
     "@types/node": "^9.4.7",
-    "common": "https://github.com/kalambo/common",
+    "common": "https://github.com/StudentHubs/common",
     "knex": "^0.14.4",
     "koa-router": "^7.4.0",
-    "rgo": "^0.3.13"
+    "rgo": "https://github.com/StudentHubs/rgo"
   }
 }
