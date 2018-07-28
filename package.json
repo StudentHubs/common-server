@@ -6,22 +6,26 @@
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+    "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all"
+  },
   "scripts": {
     "prettier":
-      "prettier --single-quote --trailing-comma all --write \"src/**/*.ts\"",
+      "prettier --write \"src/**/*.ts\"",
     "clean": "rimraf lib/*",
     "build": "yarn run clean && tsc",
     "prepare": "yarn run build"
   },
   "devDependencies": {
-    "prettier": "^1.11.1",
+    "prettier": "^1.13.7",
     "rimraf": "^2.6.2",
-    "typescript": "^2.7.2"
+    "typescript": "^2.9.2"
   },
   "dependencies": {
-    "@types/node": "^9.4.7",
+    "@types/node": "^10.5.4",
     "common": "https://github.com/StudentHubs/common",
-    "knex": "^0.14.4",
+    "knex": "^0.15.2",
     "koa-router": "^7.4.0",
     "rgo": "https://github.com/StudentHubs/rgo"
   }
